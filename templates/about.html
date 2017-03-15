@@ -1,0 +1,10 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<h5>{{ flatpage.title }}</h5>
+<p>{{ flatpage.content }}</p>
+<img src="/{{ flatpage.image }}" />
+{{ flatpage.template_name }}
+{{ flatpage.page_type }}
+{{ request.user.username }}
+{% endblock %}
