@@ -1,0 +1,17 @@
+appdirs==1.4.3
+Django==1.9
+django-crispy-forms==1.6.1
+django-floppyforms==1.7.0
+django-recaptcha==1.2.1
+django-registration==0.8
+oauthlib==2.0.1
+packaging==16.8
+PyJWT==1.4.2
+pyparsing==2.2.0
+python-openid==2.2.5
+requests==2.13.0
+requests-oauthlib==0.8.0
+six==1.10.0
+social-auth-app-django==1.1.0
+social-auth-core==1.2.0
+
