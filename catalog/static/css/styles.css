@@ -1,5 +1,25 @@
-.sidebar-nav {
-    margin-top: 20px;
+.nav {
+    list-style-type: none;
+    margin: 0;
     padding: 0;
-    list-style: none;
+    overflow: hidden;
+    display: block;
+    width:100%;
+    background-color: aliceblue;
+    height: 55px;
 }
+.nav>li {
+    float: left !important ;
+}
+
+.nav>li>a {
+    display: block;
+    color: gray;
+    width: 100px;
+    height: 55px;
+}
+.nav>li>a:hover {
+	background-color: gray;
+	color:white;
+}
+
