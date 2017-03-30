@@ -9,4 +9,5 @@ urlpatterns = [
     url(r'^book/(?P<pk>\d+)$', views.BookDetailView.as_view(), name='book-detail'),
     url(r'^authors/$', views.AuthorListView.as_view(), name='author-list'),
     url(r'^author/(?P<pk>\d+)$', views.AuthorDetailView.as_view(), name='author-detail'),
+    url(r'^profile/(?P<user_id>\d+)$', views.UserProfile.as_view(), name='user-profile'),
 ]

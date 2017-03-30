@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views import generic
-from .models import Book, Author, BookInstance, Genre, ExtendedFlatPage
+from .models import Book, Author, BookInstance, Genre, ExtendedFlatPage, UserProfile
 from django.conf import settings
 from django.contrib.flatpages.models import FlatPage
 from django.contrib.sites.shortcuts import get_current_site
@@ -9,6 +9,7 @@ from django.shortcuts import get_object_or_404
 from django.template import loader
 from django.utils.safestring import mark_safe
 from django.views.decorators.csrf import csrf_protect
+from .forms import Bookformset, BookForm
 
 def index(request):
 
@@ -82,3 +83,12 @@ def render_flatpage(request, f):
 
     response = HttpResponse(template.render({'flatpage': f}, request))
     return response
+
+
+class AuthorBookCreate(generic.CreateView):
+    model = 'Author'
+    form_class = BookForm
+    template_name = 'author_books.html'
+
+class UserProfile(generic.DetailView):
+    model = UserProfile

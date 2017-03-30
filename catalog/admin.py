@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Author, Genre, Book, BookInstance
+from .models import Author, Genre, Book, BookInstance, UserProfile
 from django.contrib.flatpages.admin import FlatPageAdmin
 from django.contrib.flatpages.forms import FlatpageForm
 from django.contrib.flatpages.models import FlatPage
@@ -35,3 +35,4 @@ class ExtendedFlatPageAdmin(FlatPageAdmin):
 
 admin.site.unregister(FlatPage)
 admin.site.register(ExtendedFlatPage, ExtendedFlatPageAdmin)
+admin.site.register(UserProfile)

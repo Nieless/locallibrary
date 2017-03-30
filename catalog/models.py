@@ -4,6 +4,7 @@ from django.db import models
 import uuid
 from django.core.urlresolvers import reverse
 from django.contrib.flatpages.models import FlatPage as FlatPageOld
+from django.contrib.auth.models import User
 
 class Genre(models.Model):
     name = models.CharField(max_length=200)
@@ -65,3 +66,11 @@ class Author(models.Model):
 class ExtendedFlatPage(FlatPageOld):
     image = models.FileField(upload_to='flatpage/media/')
     page_type = models.CharField(max_length=10, null=True)
+
+
+class UserProfile(models.Model):
+    user = models.OneToOneField(User)
+    profile_pic = models.ImageField(upload_to='')
+    first_name = models.CharField(max_length=100)
+    last_name = models.CharField(max_length=100)
+    email = models.EmailField(max_length=100)
