@@ -1,17 +1,20 @@
 {% extends "base_generic.html" %}
 
 {% block content %}
-    <h1>Book List</h1>
-
-    {% if book_list %}
+    <h1>Available Books</h1>
+    {{ form }}
+    <a href="{% url 'book-add' %}"><input type="button" class="btn-primary" value="ADD NEW"/></a>
+    {% if author_list %}
         <ul>
-
-            {% for book in book_list %}
-                <li>
-                    <a href="{{ book.get_absolute_url }}">{{ book.title }}</a> ({{ book.author }})
-                </li>
+        {% for author in author_list %}
+            <h4>Author Name: {{ author.first_name }} {{ author.last_name }}</h4>
+            {% for book in author.author__books.all %}
+                <li><a href="{{ book.get_absolute_url }}">{{ book.title }}</a></li>
+                <p>{{ book.summary }}</p>
+                <a href="{% url 'book-update' book.id %}">EDIT</a>
+                <a href="{% url 'book-delete' book.id %}">DELETE</a>
+                {% endfor %}
             {% endfor %}
-
         </ul>
     {% else %}
         <p>There are no books in the library.</p>

@@ -29,9 +29,5 @@ urlpatterns = [
                   url(r'^pages/', include('django.contrib.flatpages.urls')),
                   url(r'^aboutus/$', views.flatpage, {'url': '/aboutus/'}, name='about'),
                   url('', include('social_django.urls', namespace='social'))
-
               ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
-
-
-# urlpatterns+= static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

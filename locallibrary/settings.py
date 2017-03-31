@@ -39,6 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'django.contrib.flatpages',
     'social_django',
+    'crispy_forms',
+    'django_countries',
+
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -132,3 +135,5 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 MEDIA_URL = '/'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap3'

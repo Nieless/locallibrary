@@ -5,6 +5,9 @@ import uuid
 from django.core.urlresolvers import reverse
 from django.contrib.flatpages.models import FlatPage as FlatPageOld
 from django.contrib.auth.models import User
+from django_countries.fields import CountryField
+
+
 
 class Genre(models.Model):
     name = models.CharField(max_length=200)
@@ -15,7 +18,7 @@ class Genre(models.Model):
 
 class Book(models.Model):
     title = models.CharField(max_length=200)
-    author = models.ForeignKey('Author', on_delete=models.SET_NULL, null=True ,related_name='author__books')
+    author = models.ForeignKey('Author', on_delete=models.SET_NULL, null=True, related_name='author__books')
     summary = models.TextField(max_length=1000)
     isbn = models.CharField('ISBN', max_length=13)
     genre = models.ManyToManyField(Genre, related_name='genres_books')
@@ -45,9 +48,8 @@ class BookInstance(models.Model):
     class Meta:
         ordering = ['due_back']
 
-
     def __str__(self):
-        return '%s (%s)' %(self.id,(self.book.title))
+        return '%s (%s)' % (self.id, self.book.title,)
 
 
 class Author(models.Model):
@@ -74,3 +76,4 @@ class UserProfile(models.Model):
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
     email = models.EmailField(max_length=100)
+    country = CountryField(null=True)
